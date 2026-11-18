@@ -1,0 +1,8 @@
+@startuml
+package ui
+package model
+package util
+
+ui --> model
+ui --> util
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+title Rectangle CLI — Main Activity
+
+start
+:Show header;
+:Read a;
+:Validate a;
+:Read b;
+:Validate b;
+:Create Rectangle(a,b);
+repeat
+  :Show menu;
+  :Read choice;
+  if (choice == 0) then (exit)
+    stop
+  elseif (choice == 6) then (new params)
+    break
+  else
+    :Calculate value;
+    :Show result;
+  endif
+repeat while (true)
+@enduml

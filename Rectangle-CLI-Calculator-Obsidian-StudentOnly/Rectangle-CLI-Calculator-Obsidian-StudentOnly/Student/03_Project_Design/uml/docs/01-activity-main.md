@@ -1,0 +1,50 @@
+# 01-activity-main
+
+Исходник PlantUML: `01-activity-main.puml`
+
+```plantuml
+@startuml
+title Rectangle CLI - общий алгоритм (Activity)
+
+start
+:Показать заголовок;
+
+repeat
+  :Запросить a (длина);
+  while (a некорректно?) is (да)
+    :Показать ошибку ввода;
+    :Повторить ввод a;
+  endwhile (нет)
+
+  :Запросить b (ширина);
+  while (b некорректно?) is (да)
+    :Показать ошибку ввода;
+    :Повторить ввод b;
+  endwhile (нет)
+
+  :Создать Rectangle(a, b);
+
+  repeat
+    :Показать меню;
+    :Считать choice;
+
+    if (choice == 0?) then (да)
+      :Показать "Выход";
+      stop
+    elseif (choice == 6?) then (да)
+      break
+    elseif (choice в {1..5}?) then (да)
+      :Вычислить выбранную характеристику;
+      :Показать результат;
+      :Пауза (Enter);
+    else (нет)
+      :Показать ошибку пункта меню;
+      :Пауза (Enter);
+    endif
+
+  repeat while (true)
+
+repeat while (true)
+
+@enduml
+```
