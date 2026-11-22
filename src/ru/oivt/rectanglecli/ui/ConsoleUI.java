@@ -32,6 +32,15 @@ public class ConsoleUI {
                 case 2:
                     showArea(rect);
                     break;
+                case 3:
+                    showDiagonal(rect);
+                    break;
+                case 4:
+                    showCircumscribedCircle(rect);
+                    break;
+                case 5:
+                    showInscribedCircleRadius(rect);
+                    break;    
                 case 6:
                     rect = readRectangle();
                     break;
@@ -41,7 +50,7 @@ public class ConsoleUI {
                     break;
                 default:
                     
-                    System.out.println("Пункт " + choice + " пока не реализован (появится на шаге 6).");
+                    System.out.println("Ошибка(" + choice + ") .");
                     InputUtils.pause(sc);
                     break;
             }
@@ -99,6 +108,48 @@ public class ConsoleUI {
                 rect.getA(), rect.getB(), s);
         System.out.println();
         InputUtils.pause(sc);
+    }
+    /** Пункт 3: диагональ d = sqrt(a^2 + b^2). */
+    private void showDiagonal(Rectangle rect) {
+        double d = rect.diagonal();
+        System.out.println();
+        System.out.println("Диагональ:");
+        System.out.printf(Locale.US, "d = sqrt(a^2 + b^2) = sqrt(%.2f^2 + %.2f^2) = %.2f%n",
+                rect.getA(), rect.getB(), d);
+        System.out.println();
+        InputUtils.pause(sc);
+    }
+    /** Пункт 4: длина описанной окружности C = π · d. */
+    private void showCircumscribedCircle(Rectangle rect) {
+        double d = rect.diagonal();
+        double c = Math.PI * d;
+        System.out.println();
+        System.out.println("Длина описанной окружности:");
+        System.out.printf(Locale.US, "C = π * d = %.4f * %.2f = %.2f%n",
+                Math.PI, d, c);
+        System.out.println();
+        InputUtils.pause(sc);
+    }
+    /** Пункт 5: радиус вписанной окружности — только для квадрата. */
+    private void showInscribedCircleRadius(Rectangle rect) {
+        System.out.println();
+        if (!isSquare(rect)) {
+            System.out.println("Вписанная окружность существует только для квадрата.");
+            System.out.println();
+            InputUtils.pause(sc);
+            return;
+     }
+        double r = rect.inscribedCircleRadius();
+        System.out.println("Радиус вписанной окружности:");
+        System.out.printf(Locale.US, "r = a / 2 = %.2f / 2 = %.2f%n",
+                rect.getA(), r);
+        System.out.println();
+        InputUtils.pause(sc);
+    }
+    /** Проверка «квадрат» с допуском EPS. */
+    private boolean isSquare(Rectangle rect) {
+        final double EPS = 1e-9;
+        return Math.abs(rect.getA() - rect.getB()) < EPS;
     }
 }
 
