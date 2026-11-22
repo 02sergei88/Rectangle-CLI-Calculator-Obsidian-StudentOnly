@@ -1,9 +1,5 @@
 package ru.oivt.rectanglecli.model;
 
-/**
- * Модель прямоугольника: хранит длину a и ширину b,
- * предоставляет методы расчёта характеристик.
- */
 public class Rectangle {
 
     private final double a;
@@ -40,11 +36,7 @@ public class Rectangle {
         return Math.sqrt(a * a + b * b);
     }
 
-    /**
-     * Радиус вписанной окружности: r = a / 2.
-     * Существует только для квадрата (a == b с допуском).
-     * Если прямоугольник не квадрат — бросаем исключение.
-     */
+    
     public double inscribedCircleRadius() {
         if (!isSquare()) {
             throw new IllegalStateException("Вписанная окружность существует только для квадрата");
@@ -52,7 +44,7 @@ public class Rectangle {
         return a / 2;
     }
 
-    /** Проверка «квадрат» с допуском (см. Road_Map, шаг 6). */
+   
     public boolean isSquare() {
         final double EPS = 1e-9;
         return Math.abs(a - b) < EPS;
