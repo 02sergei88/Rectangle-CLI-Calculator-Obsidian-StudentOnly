@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.oivt.rectanglecli.ui.MainController"
+      spacing="10">
+    
+    <padding>
+        <Insets top="16" right="16" bottom="16" left="16"/>
+    </padding>
+
+    <Label text="Rectangle GUI Calculator" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <HBox spacing="8">
+        <Label text="a:"/>
+        <TextField fx:id="fieldA" promptText="длина"/>
+        <Label text="b:"/>
+        <TextField fx:id="fieldB" promptText="ширина"/>
+    </HBox>
+    <HBox spacing="8">
+        <Button text="Периметр" onAction="#onPerimeter"/>
+        <Button text="Площадь" onAction="#onArea"/>
+        <Button text="Диагональ" onAction="#onDiagonal"/>
+    </HBox>
+    <Label fx:id="resultLabel" text="Результат: —" wrapText="true"/>
+</VBox>

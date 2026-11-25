@@ -109,7 +109,7 @@ public class ConsoleUI {
         System.out.println();
         InputUtils.pause(sc);
     }
-    /** Пункт 3: диагональ d = sqrt(a^2 + b^2). */
+    // диагональ 
     private void showDiagonal(Rectangle rect) {
         double d = rect.diagonal();
         System.out.println();
@@ -119,7 +119,7 @@ public class ConsoleUI {
         System.out.println();
         InputUtils.pause(sc);
     }
-    /** Пункт 4: длина описанной окружности C = π · d. */
+    // окружность
     private void showCircumscribedCircle(Rectangle rect) {
         double d = rect.diagonal();
         double c = Math.PI * d;
@@ -130,7 +130,7 @@ public class ConsoleUI {
         System.out.println();
         InputUtils.pause(sc);
     }
-    /** Пункт 5: радиус вписанной окружности — только для квадрата. */
+    // только для квадрата.
     private void showInscribedCircleRadius(Rectangle rect) {
         System.out.println();
         if (!isSquare(rect)) {
@@ -146,7 +146,7 @@ public class ConsoleUI {
         System.out.println();
         InputUtils.pause(sc);
     }
-    /** Проверка «квадрат» с допуском EPS. */
+    // Проверка «квадрат» с допуском EPS.
     private boolean isSquare(Rectangle rect) {
         final double EPS = 1e-9;
         return Math.abs(rect.getA() - rect.getB()) < EPS;

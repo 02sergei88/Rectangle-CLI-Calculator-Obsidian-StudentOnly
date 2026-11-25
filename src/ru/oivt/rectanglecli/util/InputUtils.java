@@ -36,9 +36,9 @@ public final class InputUtils {
         }
     }
 
-    /**
-     * Читает целое число. При ошибке — сообщает и повторяет ввод.
-     */
+    
+     // Читает целое число. При ошибке — сообщает и повторяет ввод.
+     
     public static int readInt(Scanner sc, String prompt) {
         while (true) {
             System.out.print(prompt);
@@ -57,9 +57,9 @@ public final class InputUtils {
         }
     }
 
-    /**
-     * Пауза: ждёт, пока пользователь нажмёт Enter.
-     */
+    
+   //Пауза: ждёт, пока пользователь нажмёт Enter.
+     
     public static void pause(Scanner sc) {
         System.out.print("Нажмите Enter, чтобы продолжить...");
         sc.nextLine();
